@@ -1,0 +1,73 @@
+Ans 1)
+Because of the expontial distribution , the waiting time for two processes have to be the same irrespective for the time of the fact who started waiting earlier. For e.g.
+"The busses in a town have no schedule: they just wander around on their routes. Suppose that the distribution of interarrival times is exponential. 
+You come to a bus stop and wait. Two minutes later, someone else arrives. You both have the same expected time to wait for the bus, even though you have 
+been waiting longer." 
+Hence the counts of process A is higher than that of B which in turn is higher than that of C.Also it happens that A gets to execute more than C even though the priority of C is higher than A 
+
+
+
+
+
+
+
+Ans 2)
+
+Exponetial Distribution Schedular
+	
+	Advantage
+	1) It is memoryless.It means that in case you have already been waiting for a few minutes, the amount of time you expect to keep waiting is the same .
+		
+	Disdavantage
+	1) Increased computation time
+	2) Also the probabiltiy density function is monotically decreasing, a situation which may or may not be true.
+
+
+
+Linux-Like Scheduler
+
+       Advantages
+       1) Process is scheduled for its entire quantum, unless suspended hence taking fewer processing(CPU) time 
+	
+
+       2) if two processes having the same priority wants to be executed then, the schedular considers the time for which they have previuosly been executed respective process,
+	   hence the one that has been executed a fewer number of times gets higher priority.
+       
+	3) Avoid starvation due to the concept of EPOCH and quantum
+       
+       Disadvantages
+
+       1) Overheadto be maintained for the in terms of goodness quantum for ready processes
+
+
+
+
+Advantages of round robin scheduling policy implemented by xinu.
+
+       1) Process with higher priority gets excetued first. Also in case of processes with equal priority it implements the round robin scheduling.
+                                                
+    Disadvantages
+  
+       1) It does not take into consideration the history of the process while scheduling, for as a process who just got a chance to execute got suspened for to an I/O may have to wait for an entire cycle to finish again to start scheduling
+
+       2)  if there are process having different priority and higer process priority keeps coming in then it lead to starvation
+
+
+
+
+
+
+
+
+
+References:
+
+http://stackoverflow.com/questions/5362577/c-gettimeofday-for-computing-time
+http://cs.wellesley.edu/~cs199/lectures/19-exponential.html.
+
+Concept of process scheduling discussed with Priyanka Singhal
+Threading concept discussed with Priyanka Singhal and Rohit Kandhal
+
+
+
+

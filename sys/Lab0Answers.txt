@@ -1,0 +1,73 @@
+Q1)
+	
+	
+	___________________________________________________________________________________________________ln___esp(n)_______ebp(null)
+	|	     |		|	     |		   |			|			|                    |
+	|	     |		|	     |		   |			|			|		     |					
+	|text	     |	data	| 	bss  |	heap	   |   	        	|	stack (main)	|    stack (null)    |				
+	|___________|___________|____________|_____________|___________________ |_______________________|____________________|
+    0x0        etext|      edata|	  end|		                          |lm  esp(main)	|ebp(main)	
+
+	
+	
+	etext=0x0000b8f2
+	edata=0x0000e0c0
+	lm(limit main)=0x00ffdffc
+	esp(main)=0x00ffefc4
+	ebp(main)=0x00ffeff8
+		
+	ln(limit null)=0x00fff000
+	esp(null)=0x00ffff4c
+	ebp(null)=0x00fffffc
+
+
+	Q2)
+		_____________________________
+		|			    |
+		|EIP(return Address)	    |
+		|___________________________|
+		| EBP			    |	
+		|___________________________|
+		|			    |
+		|__________________________ |
+
+	When the function call is executed , the contents of the EIP register (return address) is pushed to the stack. After the the contents of the 
+		base register is pushed on the stack. This accounts for the difference between the stack top address before and after calling printtos().
+		
+	Q3)
+	
+			the byte order type is little Endian:
+			I used the following code in the main program
+			int i=4;
+			if((*(char*)&i)==4)
+				printf("The byte order type is Little Endian");
+			else
+				printf("The byte order type is Big Endian");
+	
+
+
+	Q4)
+
+
+	mov:-Basically moves data from source to destination
+
+	push: pushes the instruction on the top of the stack.
+
+	pusha: pushes all the general purpose registers (ax,cx,dx,bx,sp,bp,si,di) on to the stack
+	
+	pop: pops the instruction from the stack.
+	
+	popa: pops all the general purpose registers (ax,cx,dx,bx,sp,bp,si,di)  from the stack
+	
+	
+	Q5)
+
+	No, the result at first does not show all the variables. The compiler in order to optimized does not stored values that are not used after being initialized.
+	It was only when the compiler optimization was turned off in the makefile when the actual results were displayed.	
+
+
+	Reference:
+	http://en.wikipedia.org/wiki/X86_instruction_listings
+	Discussed call stack trace with Priyanka Singhal
+	Discussed PCB (proc.h) with Rohit Kandhal		
+
